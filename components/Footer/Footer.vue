@@ -1,6 +1,5 @@
 <!-- ivan | 11 Agustus 2023 -->
 <script setup>
-import Thanks from '@/assets/images/ThankyouDesktop.svg'
 </script>
 
 

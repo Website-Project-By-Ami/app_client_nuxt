@@ -15,7 +15,7 @@ const route = useRoute().path;
             <NavbarBtn to="/" :active="route === '/' ? true : false">
                 Home
             </NavbarBtn>
-            <NavbarBtn to="/product">
+            <NavbarBtn to="/products">
                 Product
             </NavbarBtn>
             <NavbarBtn to="/customorder">

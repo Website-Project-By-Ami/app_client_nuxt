@@ -1,22 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getAllSheetsData } from '@/composables/useSheet';
+// import { getAllSheetsData } from '@/composables/useSheet';
 
-const data = ref<any | null | undefined>([{}]);
-const dataLoaded = ref(false);
-data.value = await getAllSheetsData();
-if (data.value) {
-  dataLoaded.value = true;
-}
-console.log(data.value);
+// const data = ref<any | null | undefined>([{}]);
+// const dataLoaded = ref(false);
+// data.value = await getAllSheetsData();
+// if (data.value) {
+//   dataLoaded.value = true;
+// }
+// console.log(data.value);
 
 </script>
 
 
 <template>
   <div>
-    <p v-if="dataLoaded">Data loaded successfully!</p>
-    <h1>This is Index Page!</h1>
+    <!--  <h1>This is Index Page!</h1>
     <table v-if="dataLoaded">
       <tbody>
         <tr v-for="(row, index) in data" :key="index">
@@ -27,6 +26,6 @@ console.log(data.value);
         </tr>
       </tbody>
     </table>
-    <p v-else>Loading data...</p>
+    <p v-else>Loading data...</p> -->
   </div>
 </template>

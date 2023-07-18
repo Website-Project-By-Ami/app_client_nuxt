@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <script setup lang="ts">
 import { ref } from 'vue';
 // import { getAllSheetsData } from '@/composables/useSheet';
@@ -11,7 +13,6 @@ import { ref } from 'vue';
 // console.log(data.value);
 
 </script>
-
 
 <template>
   <div>

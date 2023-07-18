@@ -14,7 +14,7 @@ let headerImageSource = mediaQuery
       <div class="sideText absolute justify-start hidden lg:block">
         Project Ami
       </div>
-      <div class="w-100 lg:w-3/6 relative lg:px-20 lg:my-20">
+      <div class="w-100 lg:w-3/6 relative lg:px-20 lg:mt-20">
         <h1 class="font-bold">Handmade with <b class="love">Love</b> by Ami</h1>
         <p class="mt-10">
           Handcrafted gift box, snack bouquets, flower bouquets for affordable
@@ -28,9 +28,14 @@ let headerImageSource = mediaQuery
         </div>
       </div>
       <div class="mt-10 lg:mt-0 w-100 lg:w-3/6 relative">
+        <!-- <img class="w-100 z-10 relative headBg" :src="headerImageSource" /> -->
         <img
-          class="w-100 z-10 relative headBg"
+          class="w-100 z-10 relative headBg headLg"
+          src="@/assets/HomeHeader/homeheaderLg.png" />
+        <img
+          class="w-100 z-10 relative headBg headsm"
           src="@/assets/HomeHeader/homeheader.png" />
+
         <img
           class="absolute featured w-2"
           src="@/assets/HomeHeader/featured.png" />
@@ -60,6 +65,9 @@ let headerImageSource = mediaQuery
   color: #f63866;
 }
 
+.headBg {
+  width: 100%;
+}
 .shop {
   background: #f63866;
   color: white;
@@ -94,7 +102,22 @@ h1 {
   right: 10%;
 }
 
+.headsm {
+  display: block;
+}
+
+.headLg {
+  display: none;
+}
+
 @media screen and (min-width: 1024px) {
+  .headsm {
+    display: none;
+  }
+
+  .headLg {
+    display: block;
+  }
   .medsos {
     z-index: 11;
     bottom: 0px;

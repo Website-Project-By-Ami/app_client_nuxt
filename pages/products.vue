@@ -2,20 +2,35 @@
     <div class="products">
         <div class="judul">Katalog Produk</div>
         <div class="setting">
-            <div>
-                <p>Showing {{ StartLimit+1 }} - {{ items.length < EndLimit+1 ? items.length : EndLimit+1 }} of {{ items.length }} results</p>
+            <div class="box-total">
+                <p class="total">Showing {{ StartLimit+1 }} - {{ items.length < EndLimit+1 ? items.length : EndLimit+1 }} of {{ items.length }} results</p>
             </div>
             <div class="box-filter">
-                <div class="filter"><p>Filter</p> <img src="assets/products/Logo_Filter.svg" alt="" /></div>
-                <p class="sortby">Sort by Price▾</p>
-                <img class="search" src="assets/products/Logo_Search.svg" alt="" />
+                <!-- <button class="sortby" @click="ChangeSort()">{{ Sort == "Desc" ? 'Sort by Price▴' : 'Sort by Price▾' }}</button> -->
+                <p class="label-sort">Urutan:</p>
+                <div class="box-sort">
+                    <div class="button" @click="Dropdown = !Dropdown">
+                        <p class="text" v-if="Sort == 'Asc'">Harga Terendah</p>
+                        <p class="text" v-else-if="Sort == 'Desc'">Harga Tertinggi</p>
+                        <p class="text" v-else>Sort Berdasarkan Harga</p>
+                        <img src="~/assets/products/DropdownButton.svg" alt="" />
+                    </div>
+                    <div class="items" v-if="Dropdown">
+                        <div class="item" id="rendah" @click="ChangeSort('Asc')">Harga Terendah</div>
+                        <div class="item" id="tinggi" @click="ChangeSort('Desc')">Harga Tertinggi</div>
+                    </div>
+                </div>
+                <div class="box-search">
+                    <img class="search" src="assets/products/Logo_Search.svg" alt="" />
+                    <input class="input" type="text" placeholder="Cari di ProjectByAmi" @keyup="SearchItems($event.target.value)"/>
+                </div>
             </div>
         </div>
         <div class="content">
-            <BoxProduct v-for="(item, index) in items" v-show="index >= StartLimit && index <= EndLimit" :counter=index+1 :img="item.img"/>
+            <BoxProduct v-for="(item, index) in items" v-show="index >= StartLimit && index <= EndLimit" :counter=index+1 :nama="item.nama" :img="item.img" :harga="item.harga"/>
         </div>
         <div class="numberPage">
-            <button class="button"><img src="assets/products/Prev2.svg" alt="" /></button>
+            <button class="button" @click="MoveFirstPage()"><img src="assets/products/Prev2.svg" alt="" /></button>
             <button class="button" @click="PrevPage()"><img src="assets/products/Prev1.svg" alt="" /></button>
             <button class="button" 
                 v-for="n in Math.ceil(items.length/12)" 
@@ -25,12 +40,13 @@
             <button class="button" v-show="PageShowEnd+1 < Math.ceil(items.length/12)" disabled>...</button>
             <button class="button" @click="SelectPage(Math.ceil(items.length/12))" :class="{ 'current':  CurrentPage == Math.ceil(items.length/12) }">{{ Math.ceil(items.length/12) }}</button>
             <button class="button" @click="NextPage()"><img src="assets/products/Next1.svg" alt="" /></button>
-            <button class="button"><img src="assets/products/Next2.svg" alt="" /></button>
+            <button class="button" @click="MoveLastPage()"><img src="assets/products/Next2.svg" alt="" /></button>
         </div>
     </div>
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
     data() {
         const StartLimit = ref(0);
@@ -38,67 +54,71 @@ export default {
         const PageShowStart = ref(1);
         const PageShowEnd = ref(3);
         const CurrentPage = ref(1);
-        const items = ref([
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
-            { img: '/assets/products/Product_1.svg' },
+        const Dropdown = ref(false);
+        const Sort = ref(null);
+        const AllItems = ref([
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
+            { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
+            { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
+            { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
+            { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
+            { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
+            { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
         ]);
+        const items = AllItems;
 
         function NextPage() {
             // console.log("SEBELUM");
@@ -137,6 +157,22 @@ export default {
             }
         }
 
+        function MoveFirstPage() {
+            StartLimit.value = 0;
+            EndLimit.value = 11;
+            PageShowStart.value = 1;
+            PageShowEnd.value = 3;
+            CurrentPage.value = 1;
+        }
+
+        function MoveLastPage() {
+            StartLimit.value = (Math.ceil(this.items.length/12)*12)-12;
+            EndLimit.value = this.items.length-1;
+            PageShowStart.value = Math.ceil(this.items.length/12)-3;
+            PageShowEnd.value = Math.ceil(this.items.length/12)-1;
+            CurrentPage.value = Math.ceil(this.items.length/12);
+        }
+
         function SelectPage(SelectedPage) {
             CurrentPage.value = SelectedPage;
             if(SelectedPage == 1) {
@@ -167,8 +203,64 @@ export default {
             }
         }
 
+        function ChangeSort(props) {
+            Sort.value = props;
+            Dropdown.value = !Dropdown;
+            if(Sort.value == "Asc") {
+                this.items.sort((a, b) => {
+                    const diff = a.harga - b.harga;
+                    if(diff === 0) return 0;
+                    const sign = Math.abs(diff)/diff;
+                    return sign;
+                });
+            }
+            else if(Sort.value == "Desc") {
+                this.items.sort((a, b) => {
+                    const diff = b.harga - a.harga;
+                    if(diff === 0) return 0;
+                    const sign = Math.abs(diff)/diff;
+                    return sign;
+                });
+            }
+        }
+
+        const SearchItems = (props) => {
+            // const SemuaItem = [...this.AllItems];
+            const SemuaItem = [...this.AllItems];
+
+            if(props.length == 0) {
+                this.items = this.AllItems;
+            }
+            else {
+                console.log(props.toLowerCase());
+                const filterItems = SemuaItem.filter(p => p.nama.toLowerCase().indexOf(props.toLowerCase()) >= 0);
+                
+                // const filterItems = this.AllItems.filter(p => { return (p.nama.toLowerCase().includes(props.toLowerCase())) });
+                // const filterItems = SemuaItem.filter(p => { return (p.nama.toLowerCase() == props.toLowerCase()) });
+                this.items = filterItems;
+
+                console.log("INI ITEMS", this.items);
+                console.log("INI ALL ITEMS", this.AllItems);
+            }
+        }
+
         return {
-            StartLimit, EndLimit, PageShowStart, PageShowEnd, CurrentPage, items, NextPage, PrevPage, SelectPage
+            StartLimit, 
+            EndLimit, 
+            PageShowStart, 
+            PageShowEnd, 
+            CurrentPage,
+            Dropdown,
+            Sort,
+            AllItems,
+            items,
+            NextPage, 
+            PrevPage, 
+            SelectPage, 
+            MoveFirstPage, 
+            MoveLastPage,
+            ChangeSort,
+            SearchItems
         };
     },
     methods: {

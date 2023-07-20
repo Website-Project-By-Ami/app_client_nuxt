@@ -2,14 +2,18 @@
     <div class="box">
         <img class="foto" v-bind:src="img" alt="" />
         <hr>
-        <p class="nama">Bucket Wisuda</p>
-        <p class="harga">130K = {{ counter }}</p>
+        <p class="nama">{{ nama }}</p>
+        <p class="harga">{{ harga }}K = {{ counter }}</p>
         <button class="button">ORDER</button>
     </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps({
+    nama: {
+        type: String,
+        default: ''
+    },
     counter: {
         type: Number,
         default: ''
@@ -18,6 +22,10 @@ const props = defineProps({
         type: String,
         default: ''
     },
+    harga: {
+        type: Number,
+        default: ''
+    }
 })
 
 function getImageUrl() {

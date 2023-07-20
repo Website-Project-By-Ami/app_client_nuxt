@@ -7,6 +7,7 @@
         justify-content: center;
         font-size: 3vw;
         font-family: 'Noto Serif';
+        margin-bottom: 2vh;
     }
     .setting {
         display: flex;
@@ -15,13 +16,75 @@
         margin: auto;
         margin-bottom: 3vw;
         font-family: 'Noto Sans';
+
+        .box-total {
+            margin: auto 0;
+        }
         .box-filter {
             display: flex;
-            .filter {
-                display:flex;
+
+            .label-sort {
+                margin: auto 1vw;
             }
-            .sortby {
-                margin: 0 1vw;
+            .box-sort {
+                margin: auto 1vw;
+
+                .button {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 16vw;
+                    padding: 10px;
+                    background-color: white;
+                    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.10);
+                    border-radius: 5px;
+                    cursor: pointer;
+                    color: #666;
+                    font-size: 0.8vw;
+                }
+                .items {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    margin-top: 1vw;
+
+                    .item {
+                        width: 16vw;
+                        padding: 10px;
+                        background-color: white;
+                        box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.10);
+                        cursor: pointer;
+                        color: #666;
+                        font-size: 0.8vw;
+                    }
+                    .item:hover {
+                        color: black;
+                    }
+                    #rendah {
+                        border-top-left-radius: 5px;
+                        border-top-right-radius: 5px;
+                    }
+                    #tinggi {
+                        border-bottom-left-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                    }
+                }
+            }
+            .box-search {
+                display: flex;
+                box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.10);
+                border-radius: 5px;
+                background-color: white;
+                padding: 12px;
+
+                .search {
+                    width: 1vw;
+                    margin-right: 0.5vw;
+                }
+                .input {
+                    font-size: 0.8vw;
+                    background-color: transparent;
+                    border: none;
+                }
             }
         }
     }

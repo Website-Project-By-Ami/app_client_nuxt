@@ -7,7 +7,7 @@
             </div>
             <div class="box-filter">
                 <!-- <button class="sortby" @click="ChangeSort()">{{ Sort == "Desc" ? 'Sort by Price▴' : 'Sort by Price▾' }}</button> -->
-                <p class="label-sort">Urutan:</p>
+                <p class="label-sort">Urutkan:</p>
                 <div class="box-sort">
                     <div class="button" @click="Dropdown = !Dropdown">
                         <p class="text" v-if="Sort == 'Asc'">Harga Terendah</p>
@@ -30,17 +30,17 @@
             <BoxProduct v-for="(item, index) in items" v-show="index >= StartLimit && index <= EndLimit" :counter=index+1 :nama="item.nama" :img="item.img" :harga="item.harga"/>
         </div>
         <div class="numberPage">
-            <button class="button" @click="MoveFirstPage()"><img src="assets/products/Prev2.svg" alt="" /></button>
-            <button class="button" @click="PrevPage()"><img src="assets/products/Prev1.svg" alt="" /></button>
+            <button class="button" @click="MoveFirstPage()"><img class="logo" src="assets/products/Prev2.svg" alt="" /></button>
+            <button class="button" @click="PrevPage()"><img class="logo" src="assets/products/Prev1.svg" alt="" /></button>
             <button class="button" 
                 v-for="n in Math.ceil(items.length/12)" 
                 @click="SelectPage(n)"
                 :class="{ 'current':  n == CurrentPage }" 
                 v-show="n >= PageShowStart && n <= PageShowEnd">{{ n }}</button>
             <button class="button" v-show="PageShowEnd+1 < Math.ceil(items.length/12)" disabled>...</button>
-            <button class="button" @click="SelectPage(Math.ceil(items.length/12))" :class="{ 'current':  CurrentPage == Math.ceil(items.length/12) }">{{ Math.ceil(items.length/12) }}</button>
-            <button class="button" @click="NextPage()"><img src="assets/products/Next1.svg" alt="" /></button>
-            <button class="button" @click="MoveLastPage()"><img src="assets/products/Next2.svg" alt="" /></button>
+            <button class="button" v-show="Math.ceil(items.length/12) > 3" @click="SelectPage(Math.ceil(items.length/12))" :class="{ 'current':  CurrentPage == Math.ceil(items.length/12) }">{{ Math.ceil(items.length/12) }}</button>
+            <button class="button" @click="NextPage()"><img class="logo" src="assets/products/Next1.svg" alt="" /></button>
+            <button class="button" @click="MoveLastPage()"><img class="logo" src="assets/products/Next2.svg" alt="" /></button>
         </div>
     </div>
 </template>
@@ -56,7 +56,7 @@ export default {
         const CurrentPage = ref(1);
         const Dropdown = ref(false);
         const Sort = ref(null);
-        const AllItems = ref([
+        const AllItems = [
             { nama: 'Bucket Wisuda', img: '/assets/products/Product_1.svg', harga: 130 },
             { nama: 'Bucket Valentine', img: '/assets/products/Product_1.svg', harga: 125 },
             { nama: 'Bucket Ulang Tahun', img: '/assets/products/Product_1.svg', harga: 150 },
@@ -117,8 +117,9 @@ export default {
             { nama: 'Bucket Wedding', img: '/assets/products/Product_1.svg', harga: 170 },
             { nama: 'Bucket Lahiran', img: '/assets/products/Product_1.svg', harga: 120 },
             { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
-        ]);
-        const items = AllItems;
+        ];
+        const items = ref(AllItems);
+        // let items = this.AllItems.slice(0);
 
         function NextPage() {
             // console.log("SEBELUM");
@@ -225,22 +226,14 @@ export default {
         }
 
         const SearchItems = (props) => {
-            // const SemuaItem = [...this.AllItems];
-            const SemuaItem = [...this.AllItems];
+            const SemuaItem = this.AllItems;
 
             if(props.length == 0) {
                 this.items = this.AllItems;
             }
             else {
-                console.log(props.toLowerCase());
                 const filterItems = SemuaItem.filter(p => p.nama.toLowerCase().indexOf(props.toLowerCase()) >= 0);
-                
-                // const filterItems = this.AllItems.filter(p => { return (p.nama.toLowerCase().includes(props.toLowerCase())) });
-                // const filterItems = SemuaItem.filter(p => { return (p.nama.toLowerCase() == props.toLowerCase()) });
                 this.items = filterItems;
-
-                console.log("INI ITEMS", this.items);
-                console.log("INI ALL ITEMS", this.AllItems);
             }
         }
 

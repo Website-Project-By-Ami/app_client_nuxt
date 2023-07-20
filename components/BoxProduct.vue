@@ -31,10 +31,4 @@ const props = defineProps({
 function getImageUrl() {
   return new URL(`../assets/products/${props.img}`, import.meta.url)
 }
-
-// PAKAI BAWAH KALAU ISI DATA Product_1.svg TAPI KALAU REFERESH FOTO HILANG HEHE :0
-// <img class="foto" :src="getImageUrl()" alt="" />
-
-// PAKAI BAWAH KALAU ISI DATA /assets/products/Product_1.svg
-// <img class="foto" v-bind:src="img" alt="" />
 </script>

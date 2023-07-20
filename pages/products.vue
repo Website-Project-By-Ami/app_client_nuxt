@@ -119,7 +119,6 @@ export default {
             { nama: 'Bucket Lamaran', img: '/assets/products/Product_1.svg', harga: 140 },
         ];
         const items = ref(AllItems);
-        // let items = this.AllItems.slice(0);
 
         function NextPage() {
             // console.log("SEBELUM");

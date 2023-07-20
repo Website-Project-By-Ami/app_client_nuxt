@@ -3,7 +3,7 @@
         <img class="foto" v-bind:src="img" alt="" />
         <hr>
         <p class="nama">{{ nama }}</p>
-        <p class="harga">{{ harga }}K = {{ counter }}</p>
+        <p class="harga">{{ harga }}K</p>
         <button class="button">ORDER</button>
     </div>
 </template>

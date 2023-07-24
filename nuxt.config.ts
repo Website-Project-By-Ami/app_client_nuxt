@@ -5,6 +5,14 @@ export default defineNuxtConfig({
   // modules: [
   //   '@nuxtjs/eslint-module',
   // ],
+  modules: ['nuxt-swiper'],
+  swiper: {
+    // Swiper options
+    //----------------------
+    // prefix: 'Swiper',
+    // styleLang: 'css',
+    // modules: ['navigation', 'pagination'], // all modules are imported by default
+  },
   alias: {
     '@': resolve(__dirname, './')
   },

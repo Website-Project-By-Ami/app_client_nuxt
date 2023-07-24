@@ -1,7 +1,7 @@
-<script setup lang="ts"></script>
-
 <script setup lang="ts">
 import { ref } from "vue";
+import 'swiper/css/pagination';
+    import { Pagination } from 'swiper/modules';
 // import { getAllSheetsData } from '@/composables/useSheet';
 
 // const data = ref<any | null | undefined>([{}]);
@@ -11,11 +11,59 @@ import { ref } from "vue";
 //   dataLoaded.value = true;
 // }
 // console.log(data.value);
+
+const swiper = useSwiper();
+
+const data_product =[
+  {
+    id: 1,
+    image: "/_nuxt/assets/HomeContent/Produk1.png",
+    nama: "Buket Wisuda",
+    harga: "110K",
+    link: "#"
+  },
+  {
+    id: 2,
+    image: "/_nuxt/assets/HomeContent/Produk2.png",
+    nama: "Buket Wisuda",
+    harga: "110K",
+    link: "#"
+  },
+  {
+    id: 3,
+    image: "/_nuxt/assets/HomeContent/Produk3.png",
+    nama: "Buket Wisuda",
+    harga: "110K",
+    link: "#"
+  },
+  {
+    id: 4,
+    image: "/_nuxt/assets/HomeContent/Produk4.png",
+    nama: "Buket Wisuda",
+    harga: "110K",
+    link: "#"
+  },
+  {
+    id: 5,
+    image: "/_nuxt/assets/HomeContent/Produk5.png",
+    nama: "Buket Wisuda",
+    harga: "110K",
+    link: "#"
+  },
+  {
+    id: 6,
+    image: "/_nuxt/assets/HomeContent/Produk6.png",
+    nama: "Buket Wisuda",
+    harga: "110K",
+    link: "#"
+  }
+]
+
+
 </script>
 
 <template>
   <div>
-    <HeaderHome />
     <!--  <h1>This is Index Page!</h1>
     <table v-if="dataLoaded">
       <tbody>
@@ -28,5 +76,30 @@ import { ref } from "vue";
       </tbody>
     </table>
     <p v-else>Loading data...</p> -->
+    <HeaderHome />
+      <div id="content">
+        <HomeContentHomePelayanan />
+        <HomeContentHomeProduct />
+        <HomeContentHomeTesti />
+        <HomeContentHomeGallery />
+        <HomeContentHomeCustom />
+        <HomeContentHomeLocation />
+        
+    </div>
   </div>
 </template>
+
+<style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+  #content{
+    /* width:85vw; */
+    margin:auto;
+    border-left:1px dashed #C0B5A5;
+    background-color: #FFF7F0;
+  }
+
+</style>

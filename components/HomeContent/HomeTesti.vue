@@ -49,6 +49,8 @@
 
   #testi{
     position: relative;
+    /* padding-bottom:100px; */
+    /* z-index: 0; */
   }
   .testi_section{
     display: flex;
@@ -66,7 +68,7 @@
     top:50%;
     left:6.9%;
     background-color: black;
-    z-index: 1;
+    z-index: 4;
     color:white;
     align-items: center;
     border-radius: 0 80px 80px 0;
@@ -204,7 +206,7 @@
     }
 
     .testi_lengkap_arrow{
-      top:98%;
+      top:90%;
       left:0%;
       height:fit-content;
       /* margin-bottom: 10vh; */

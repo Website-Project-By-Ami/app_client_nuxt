@@ -4,7 +4,7 @@ import logo from '@/assets/image/Logo.svg';
 import Instagram from '@/assets/image/Instagram.svg';
 import Whatsapp from '@/assets/image/Whatsapp.svg';
 import Shopee from '@/assets/image/Shopee.svg';
-import { ref } from 'vue';
+
 
 const route = useRoute().path;
 

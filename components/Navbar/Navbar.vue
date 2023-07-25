@@ -11,9 +11,16 @@
   <div id="mobile" class="nav">
     <NavbarMobile />
   </div>
+  <div id="gap">
+
+  </div>
 </template>
 
 <style scoped lang="scss">
+#gap {
+  height: 79px;
+}
+
 #mobile {
   display: none;
 
@@ -31,7 +38,10 @@
 }
 
 .nav {
-  position: relative;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
 }
 </style>

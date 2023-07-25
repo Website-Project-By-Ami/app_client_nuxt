@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+// import { Pagination } from "swiper/modules";
 // import { getAllSheetsData } from '@/composables/useSheet';
 
 // const data = ref<any | null | undefined>([{}]);

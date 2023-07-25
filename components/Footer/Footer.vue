@@ -18,7 +18,6 @@
                     <NuxtLink to="/" class="_column_child">Home
                     </NuxtLink>
                     <NuxtLink to="/products" class="_column_child">Products</NuxtLink>
-                    <NuxtLink to="/testimonials" class="_column_child">Testimonials</NuxtLink>
                     <NuxtLink to="/customorder" class="_column_child">Custom Order</NuxtLink>
                 </div>
                 <div class="_column">

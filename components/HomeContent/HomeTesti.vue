@@ -64,7 +64,7 @@
     display: flex;
     position: absolute;
     top:50%;
-    left:7.5%;
+    left:6.9%;
     background-color: black;
     z-index: 1;
     color:white;

@@ -3,38 +3,48 @@
     import 'swiper/css/pagination';
     import { Pagination } from 'swiper/modules';
 
+    // import images
+    import image1 from "@/assets/HomeContent/gallery1.svg";
+    import image2 from "@/assets/HomeContent/gallery2.svg";
+    import image3 from "@/assets/HomeContent/gallery3.svg";
+    import image4 from "@/assets/HomeContent/gallery4.svg";
+    import image5 from "@/assets/HomeContent/gallery5.svg";
+    import image6 from "@/assets/HomeContent/gallery6.svg";
+    import image7 from "@/assets/HomeContent/gallery7.svg";
+    import image8 from "@/assets/HomeContent/gallery8.svg";
+
     const swiper = useSwiper();
     const gallery = [
         {
-        image: "/_nuxt/assets/HomeContent/gallery1.svg",
+        image: image1,
         nama: "FLOWER BOUQUET"
         },
         {
-        image: "/_nuxt/assets/HomeContent/gallery2.svg",
+        image: image2,
         nama: "FLOWER BOUQUET"
         },
         {
-        image: "/_nuxt/assets/HomeContent/gallery3.svg",
+        image: image3,
         nama: "FLOWER BOUQUET"
         },
         {
-        image: "/_nuxt/assets/HomeContent/gallery4.jpg",
+        image: image4,
         nama: "FLOWER BOUQUET"
         },
         {
-        image: "/_nuxt/assets/HomeContent/gallery5.jpg",
+        image: image5,
         nama: "FLOWER BOUQUET"
         },
         {
-        image: "/_nuxt/assets/HomeContent/gallery6.jpg",
+        image: image6,
         nama: "FLOWER BOUQUET"
         },
         {
-        image: "/_nuxt/assets/HomeContent/gallery7.jpg",
+        image: image7,
         nama: "FLOWER BOUQUET"
         },
         {
-        image: "/_nuxt/assets/HomeContent/gallery8.jpg",
+        image: image8,
         nama: "FLOWER BOUQUET"
         }
     ]

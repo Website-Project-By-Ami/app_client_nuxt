@@ -1,43 +1,51 @@
 <script setup lang="ts">
+import image1 from "@/assets/HomeContent/Produk1.png";
+import image2 from "@/assets/HomeContent/Produk2.png";
+import image3 from "@/assets/HomeContent/Produk3.png";
+import image4 from "@/assets/HomeContent/Produk4.png";
+import image5 from "@/assets/HomeContent/Produk5.png";
+import image6 from "@/assets/HomeContent/Produk6.png";
+
+
 const data_product =[
   {
     id: 1,
-    image: "/_nuxt/assets/HomeContent/Produk1.png",
+    image: image1,
     nama: "Buket Wisuda",
     harga: "110K",
     link: "#"
   },
   {
     id: 2,
-    image: "/_nuxt/assets/HomeContent/Produk2.png",
+    image: image2,
     nama: "Buket Wisuda",
     harga: "110K",
     link: "#"
   },
   {
     id: 3,
-    image: "/_nuxt/assets/HomeContent/Produk3.png",
+    image: image3,
     nama: "Buket Wisuda",
     harga: "110K",
     link: "#"
   },
   {
     id: 4,
-    image: "/_nuxt/assets/HomeContent/Produk4.png",
+    image: image4,
     nama: "Buket Wisuda",
     harga: "110K",
     link: "#"
   },
   {
     id: 5,
-    image: "/_nuxt/assets/HomeContent/Produk5.png",
+    image: image5,
     nama: "Buket Wisuda",
     harga: "110K",
     link: "#"
   },
   {
     id: 6,
-    image: "/_nuxt/assets/HomeContent/Produk6.png",
+    image: image6,
     nama: "Buket Wisuda",
     harga: "110K",
     link: "#"

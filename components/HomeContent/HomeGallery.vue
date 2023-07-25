@@ -7,11 +7,11 @@
     import image1 from "@/assets/HomeContent/gallery1.svg";
     import image2 from "@/assets/HomeContent/gallery2.svg";
     import image3 from "@/assets/HomeContent/gallery3.svg";
-    import image4 from "@/assets/HomeContent/gallery4.svg";
-    import image5 from "@/assets/HomeContent/gallery5.svg";
-    import image6 from "@/assets/HomeContent/gallery6.svg";
-    import image7 from "@/assets/HomeContent/gallery7.svg";
-    import image8 from "@/assets/HomeContent/gallery8.svg";
+    import image4 from "@/assets/HomeContent/gallery4.jpg";
+    import image5 from "@/assets/HomeContent/gallery5.jpg";
+    import image6 from "@/assets/HomeContent/gallery6.jpg";
+    import image7 from "@/assets/HomeContent/gallery7.jpg";
+    import image8 from "@/assets/HomeContent/gallery8.jpg";
 
     const swiper = useSwiper();
     const gallery = [

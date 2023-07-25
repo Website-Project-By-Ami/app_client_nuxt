@@ -4,15 +4,18 @@ import logo from "@/assets/image/Shopee.svg";
 
 <template>
   <div class="header">
-    <div class="flex px-10 lg:px-20 relative flex-col lg:flex-row">
+    <div class="flex px-10 lg:px-28 relative flex-col lg:flex-row">
       <div class="sideText absolute justify-start hidden lg:block">
         Project Ami
       </div>
-      <div class="w-100 lg:w-3/6 relative lg:px-20 flex justify-center">
-        <img class="w-100 product1" src="@/assets/OrderHeader/product1.png" />
+      <div
+        class="w-100 lg:w-4/6 xl:w-3/6 relative lg:pl-14 lg:pr-10 xl:pl-36 xl:pr-5 flex justify-center">
+        <img
+          class="w-100 h-auto product1"
+          src="@/assets/OrderHeader/product1.png" />
       </div>
       <div
-        class="flex flex-col relative items-center mt-10 lg:mt-0 w-100 lg:w-3/6 relative lg:pr-28 xl:pr-40">
+        class="flex flex-col relative items-center mt-10 lg:mt-0 w-100 lg:w-2/6 xl:w-3/6 relative xl:pr-40">
         <img class="w-100 mt-20" src="@/assets/OrderHeader/title.svg" />
         <img class="w-80 mt-20" src="@/assets/OrderHeader/product2.png" />
         <div
@@ -91,7 +94,7 @@ h1 {
     z-index: 11;
     bottom: 0px;
     right: 15%;
-    width: 12%;
+    width: 15%;
   }
 }
 </style>

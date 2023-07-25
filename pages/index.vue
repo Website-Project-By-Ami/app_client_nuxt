@@ -103,7 +103,7 @@ const data_product = [
 .line {
   z-index: 0;
   content: " ";
-  width: 100px;
+  width: 7.5%;
   left: 0px;
   height: 100%;
   top: 0px;

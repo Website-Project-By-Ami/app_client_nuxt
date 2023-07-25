@@ -1,19 +1,35 @@
 <!-- ivan | 11 Agustus 2023 -->
 <script setup>
-import { useMediaQuery } from "@vueuse/core";
-const mediaQuery = useMediaQuery("(min-width: 1000px)").value;
+// import { useMediaQuery } from "@vueuse/core";
+// const mediaQuery = useMediaQuery("(min-width: 1000px)").value;
 </script>
 
 <template>
-  <div class="nav" v-if="mediaQuery === true">
+  <div id="dekstop" class="nav">
     <NavbarDesktop />
   </div>
-  <div class="nav" v-else-if="mediaQuery === false">
+  <div id="mobile" class="nav">
     <NavbarMobile />
   </div>
 </template>
 
-<style>
+<style scoped lang="scss">
+#mobile {
+  display: none;
+
+  @media (max-width: 700px) {
+    display: block;
+  }
+}
+
+#dekstop {
+  display: block;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+
 .nav {
   position: relative;
   z-index: 10;

@@ -2,6 +2,7 @@
 <script setup>
 import logo from '@/assets/image/Logo.svg';
 const route = useRoute().path;
+
 </script>
 
 <template>
@@ -15,10 +16,10 @@ const route = useRoute().path;
             <NavbarBtn to="/" :active="route === '/' ? true : false">
                 Home
             </NavbarBtn>
-            <NavbarBtn to="/products">
+            <NavbarBtn to="/products" :active="route === '/products' ? true : false">
                 Product
             </NavbarBtn>
-            <NavbarBtn to="/customorder">
+            <NavbarBtn to="/customorder" :active="route === '/customorder' ? true : false">
                 Custom Order
             </NavbarBtn>
         </div>

@@ -14,6 +14,7 @@ let headerImageSource = mediaQuery
       <div class="sideText absolute justify-start hidden lg:block">
         Project Ami
       </div>
+
       <div class="w-100 lg:w-3/6 relative lg:px-20 lg:mt-20">
         <h1 class="font-bold">Handmade with <b class="love">Love</b> by Ami</h1>
         <p class="mt-10">
@@ -83,8 +84,11 @@ h1 {
 }
 
 .sideText {
-  left: 20px;
-  top: 50%;
+  font-size: 3.5rem;
+  color: #b1668c;
+  font-family: Te-quirtez;
+  left: -70px;
+  top: 20%;
   transform: rotate(-90deg) translate(-50%, -50%);
 }
 

@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <di class="relative">
     <HeaderOrder />
-  </div>
+  </di>
 </template>
+
+<style scoped>
+@import url("../assets/global.scss");
+</style>

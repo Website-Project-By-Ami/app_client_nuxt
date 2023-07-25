@@ -56,8 +56,11 @@ h1 {
 }
 
 .sideText {
-  left: 20px;
-  top: 50%;
+  font-size: 3.5rem;
+  color: #b1668c;
+  font-family: Te-quirtez;
+  left: -70px;
+  top: 20%;
   transform: rotate(-90deg) translate(-50%, -50%);
 }
 

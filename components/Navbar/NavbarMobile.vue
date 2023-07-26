@@ -49,22 +49,25 @@ function toggleCross() {
     </nav>
     <div v-if="isCrossed === true" id="dropdown">
         <div id="dropdown_content">
-            <NavbarBtn to="/" :active="route === '/' ? true : false">
+            <NuxtLink @click="toggleCross" to="/" :active="route === '/' ? true : false">
                 Home
-            </NavbarBtn>
-            <NavbarBtn to="/product">
+            </NuxtLink>
+            <NuxtLink @click="toggleCross" to="/products">
                 Product
-            </NavbarBtn>
-            <NavbarBtn to="/customorder">
+            </NuxtLink>
+            <NuxtLink @click="toggleCross" to="/customorder">
                 Custom Order
-            </NavbarBtn>
-            <button class="shop_now_btn">
+            </NuxtLink>
+            <button @click="toggleCross" class="shop_now_btn">
                 Shop now
             </button>
             <div class="social_media flex gap-4">
-                <NavbarSocialMedia href="https://www.instagram.com/ivanbagus_/" :src="Whatsapp" alt="Instagram" />
-                <NavbarSocialMedia href="https://www.instagram.com/ivanbagus_/" :src="Instagram" alt="Instagram" />
-                <NavbarSocialMedia href="https://www.instagram.com/ivanbagus_/" :src="Shopee" alt="Instagram" />
+                <NavbarSocialMedia href="https://www.instagram.com/ivanbagus_/" :src="Whatsapp"
+                    alt="Link Whatsapp Project By Ami" />
+                <NavbarSocialMedia href="https://www.instagram.com/ivanbagus_/" :src="Instagram"
+                    alt="Link Instagram Project By Ami" />
+                <NavbarSocialMedia href="https://www.instagram.com/ivanbagus_/" :src="Shopee"
+                    alt="Link Shopee Project By Ami" />
             </div>
         </div>
     </div>
@@ -72,8 +75,32 @@ function toggleCross() {
 
 
 
-<style scoped>
+<style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap');
+
+
+.router-link {
+    color: #595758;
+    font-family: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    width: fit - content;
+    font-family: 'Noto Sans', sans-serif !important;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+}
+
+.router-link-active {
+    font-weight: 700;
+    border-bottom: 3px solid #f3a195;
+    width: fit-content;
+}
+
 
 #dropdown {
     background-color: rgba(255, 255, 255, 1);

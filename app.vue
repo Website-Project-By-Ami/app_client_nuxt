@@ -7,8 +7,10 @@
 </template>
 
 <script setup>
+
 useHead({
   title: 'Project By Ami | Toko Buket Tangerang',
+  
   charset: 'utf-8',
   viewport: 'width=device-width, initial-scale=1',
   meta: [

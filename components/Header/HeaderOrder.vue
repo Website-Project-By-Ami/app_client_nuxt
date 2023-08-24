@@ -19,7 +19,7 @@ import logo from "@/assets/image/Shopee.svg";
         <img class="w-100 mt-20" src="@/assets/OrderHeader/title.svg" />
         <img class="w-80 mt-20" src="@/assets/OrderHeader/product2.png" />
         <div
-          class="flex w-100 medsos justify-between lg:flex-col lg:absolute lg:space-y-4">
+          class="my-10 lg:mt-0 flex w-100 medsos justify-between lg:flex-col lg:absolute lg:space-y-4">
           <img
             class="w-1/6 lg:w-24 h-fit"
             src="@/assets/HomeHeader/whatsapp.png" />

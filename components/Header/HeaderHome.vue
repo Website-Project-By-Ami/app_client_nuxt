@@ -11,7 +11,7 @@ let headerImageSource = mediaQuery
 <template>
   <div class="header">
     <div
-      class="flex py-10 px-4 md:px-20 lg:px-20 relative flex-col lg:flex-row">
+      class="flex py-10 px-4 md:px-20 md:py-20 lg:px-20 relative flex-col lg:flex-row">
       <div class="sideText absolute justify-start hidden lg:block">
         Project Ami
       </div>
@@ -23,23 +23,27 @@ let headerImageSource = mediaQuery
           prices and customize your own desired order
         </p>
         <div class="flex items-center mt-10">
-          <button class="shop noto-sans w-32 mr-10 p-4 rounded-full font-bold">
+          <button
+            class="shop whitespace-nowrap noto-sans w-32 mr-10 p-4 rounded-full font-bold">
             Shop now
           </button>
-          <div
-            class="flex noto-sans cursor-pointer justify-center items-center gap-2">
-            <p>Custom Order</p>
-            <svg
-              width="21"
-              height="12"
-              viewBox="0 0 21 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M20.5303 6.53033C20.8232 6.23744 20.8232 5.76256 20.5303 5.46967L15.7574 0.696698C15.4645 0.403804 14.9896 0.403804 14.6967 0.696698C14.4038 0.989591 14.4038 1.46446 14.6967 1.75736L18.9393 6L14.6967 10.2426C14.4038 10.5355 14.4038 11.0104 14.6967 11.3033C14.9896 11.5962 15.4645 11.5962 15.7574 11.3033L20.5303 6.53033ZM6.55671e-08 6.75L20 6.75L20 5.25L-6.55671e-08 5.25L6.55671e-08 6.75Z"
-                fill="#595758" />
-            </svg>
-          </div>
+          <NuxtLink to="/customorder">
+            <div
+              class="custom-order flex noto-sans cursor-pointer justify-center items-center gap-2">
+              <p>Custom Order</p>
+              <svg
+                class="btnArrow"
+                width="21"
+                height="12"
+                viewBox="0 0 21 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20.5303 6.53033C20.8232 6.23744 20.8232 5.76256 20.5303 5.46967L15.7574 0.696698C15.4645 0.403804 14.9896 0.403804 14.6967 0.696698C14.4038 0.989591 14.4038 1.46446 14.6967 1.75736L18.9393 6L14.6967 10.2426C14.4038 10.5355 14.4038 11.0104 14.6967 11.3033C14.9896 11.5962 15.4645 11.5962 15.7574 11.3033L20.5303 6.53033ZM6.55671e-08 6.75L20 6.75L20 5.25L-6.55671e-08 5.25L6.55671e-08 6.75Z"
+                  fill="#595758" />
+              </svg>
+            </div>
+          </NuxtLink>
         </div>
       </div>
       <div class="mt-10 lg:mt-0 w-100 lg:w-3/6 relative">
@@ -93,6 +97,26 @@ let headerImageSource = mediaQuery
   background: #f63866;
   color: white;
   filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.6));
+}
+
+.shop:hover {
+  filter: brightness(0.5);
+}
+
+.custom-order:hover .btnArrow {
+  animation: arrowAnim 1s ease-out infinite;
+}
+
+@keyframes arrowAnim {
+  0% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 2rem;
+  }
+  100% {
+    margin-left: 0px;
+  }
 }
 
 h1 {
